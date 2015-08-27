@@ -131,14 +131,25 @@ for (var key in album) {
 
 
 
-//Create an object called states that has 5 US states as properties with the values being their population (doesn't have to be accurate).
+//Create an object called states that has 5 US states as properties with the values being their population 
+//(doesn't have to be accurate).
 
   //Code Here
-
+var states = {
+  ca: 1,
+  ak: 2,
+  tx: 3,
+  fl: 4,
+  va: 50000000
+}
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
 
   //Code Here
-
+for (var key in states) {
+  if (states[key] > 30000) {
+    console.log(key);
+  }
+}
 
 
 
@@ -159,12 +170,20 @@ var user = {
 that each value is truthy. If it's not truthy, remove it from the object. */
 
   //Code Here
-
-//Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
+for (var key in user) {
+  if (!user[key]) {
+    delete (user[key]);
+  }
+}
+console.log(user);
+//Once you get your truthy Object, Change the remaining values in the object to be specific to you 
+//(name: 'your name', username: 'your username'), rather than my information.
 
   //Code Here
 
 
+user.name = "ryan";
+user.username = "r-walsh";
 
 
 //NEXT PROBLEM
@@ -187,11 +206,12 @@ var user = {
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
   //Code Here
-
+user.name = "Tyler S. McGinnis";
+user.email = "tyler.mcginnis@devmounta.in";
 //Now call the sayName method that's on the user object which will alert the users email
 
   //Code Here
-
+user.sayName();
 
 
 
@@ -204,35 +224,55 @@ var user = {
 
   //Code Here
 
+var methodCollection = {};
+
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
   //Code Here
+methodCollection.alertHello = function() {
+  alert("hello");
+}
+methodCollection.logHello = function() {
+  console.log("hello");
+}
 
 //Now call your alertHello and logHello methods.
 
   //Code Here
-
-
-
-//NEXT PROBLEM
-
-
-
-// Create a function called MakePerson which takes in name, birthday, ssn as its parameters and returns a new object with all of the information that you passed in.
-
-  //Code Here
-
+methodCollection.alertHello();
+methodCollection.logHello();
 
 
 //NEXT PROBLEM
 
 
 
-// Create a function called MakeCard which takes in all the data it needs to make a Credit Card object and returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
+// Create a function called MakePerson which takes in name, birthday, ssn as its parameters and returns a 
+//new object with all of the information that you passed in.
 
   //Code Here
+
+function MakePerson(name, birthday, ssn) {
+    this.name = name;
+    this.birthday = birthday;
+    this.ssn = ssn;
+}
+
+//NEXT PROBLEM
+
+
+
+// Create a function called MakeCard which takes in all the data it needs to make a Credit Card object and 
+//returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
+
+  //Code Here
+function MakeCard(cardNum, name, date) {
+  this.cardNum = cardNum;
+  this.name = name;
+  this.date = date;
+}
   
   
   
@@ -246,5 +286,8 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 */
 
   //Code Here
-
+function BindCard(person, card) {
+  this.person = person;
+  this.card = card;
+}
 
